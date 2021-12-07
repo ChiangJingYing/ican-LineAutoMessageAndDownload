@@ -29,11 +29,10 @@
        file = requests.get('https://ican.tcu.edu.tw/ican5/Download.ashx?fileid=%s' % code)
           with open('/Users/jing/Downloads/%s題目.docx' % localltime, 'wb') as f:  
               f.write(file.content)
-* 調用外部指令打開下載的檔案
-```os.system("指令")
+* 調用外部指令打開下載的檔案os.system("指令")<br>
+`os.system("open /Users/jing/Downloads/%s題目.docx" % localltime)`
+    
 
-    os.system("open /Users/jing/Downloads/%s題目.docx" % localltime)
-```
 <h2>傳訊（Line Notify)</h2>
 * 格式化需要的Header<br>
 ```header = {"Authorization": "Bearer " + token}```
