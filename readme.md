@@ -6,33 +6,36 @@
 <br><h2>下載</h2>
 * 對傳入的url加入cookie請求並取得回傳的html
 
-  ```herf = url
-      headers = {
-          'User-Agent': 'XXXXXX',
-          'Cookie': 'XXXXXX'
-      }
-      session = requests.Session()
-      response = session.get(herf, headers=headers)
+  ```
+  herf = url
+  headers = {
+      'User-Agent': 'XXXXXX',
+      'Cookie': 'XXXXXX'
+  }
+  session = requests.Session()
+  response = session.get(herf, headers=headers)
 * Beautifulsoup初始化
 
-    ```soup = BeautifulSoup(response.text, "html.parser")
+    ```
+    soup = BeautifulSoup(response.text, "html.parser")
     sel = soup.find_all('a', href='#') #標籤是<a>且href='#'
 * 篩選出檔案代碼
 
-   ```# onclick = javascript:flv_filedownload('XXXXXX'); 原始取得的指令
+   ```
+    # onclick = javascript:flv_filedownload('XXXXXX'); 原始取得的指令
     for s in sel:
         if s.attrs['onclick'] != 'More();':  
             code = (s.attrs['onclick'])[29:35:1] # 取出串列中29~35個（六碼）
 * 請求html並寫入檔案
-    ```with open("檔名","寫入方式")
-       file = requests.get('https://ican.tcu.edu.tw/ican5/Download.ashx?fileid=%s' % code)
-          with open('/Users/jing/Downloads/%s題目.docx' % localltime, 'wb') as f:  
-              f.write(file.content)
+    ```
+     with open("檔名","寫入方式")
+         file = requests.get('https://ican.tcu.edu.tw/ican5/Download.ashx?fileid=%s' % code)
+            with open('/Users/jing/Downloads/%s題目.docx' % localltime, 'wb') as f:  
+                f.write(file.content)
 * 調用外部指令打開下載的檔案os.system("指令")<br>
   ```
   os.system("open /Users/jing/Downloads/%s題目.docx" % localltime)
   ```
-    
 
 <h2>傳訊（Line Notify)</h2>
 * 格式化需要的Header<br>
