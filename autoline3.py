@@ -70,7 +70,7 @@ def formatMessage(message):
     """""""""""""""""""""""""""
             格式化傳入的串列
     """""""""""""""""""""""""""
-    localltime = time.strftime("%Y/%m/%d", time.localtime())  # 取得現在的時間並格式化成（Y/M/D)
+    localltime = time.strftime("%Y/%-m/%-d", time.localtime())  # 取得現在的時間並格式化成（Y/M/D)
     if len(message) != 4:  # 若為繳交狀態，則增加一個"XD"以防後續判斷串列超出範圍
         message.append('XD')
     if message[3] != '已繳交' and message[3] != '未開始' and message[3] != '已逾期':  # 篩選為繳交的項目出來
@@ -97,6 +97,6 @@ def Line_Notify(token, message):
 
 if __name__ == '__main__':
     for i in range(5):
-        time.sleep(30 * 60)
         getHTML(4)
+        time.sleep(30 * 60)
     Line_Notify(token, '沒作業')
