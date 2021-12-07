@@ -52,7 +52,7 @@
 <br><h2>格式化文字</h2>
 * 將文字加入到串列中
   ```
-  localltime = time.strftime("%Y/%m/%d", time.localtime())  # 取得現在的時間並格式化成（Y/M/D)
+  localltime = time.strftime("%Y/%-m/%-d", time.localtime())  # 取得現在的時間並格式化成（Y/M/D)
     if len(message) != 4:  # 若為繳交狀態，則增加一個"XD"以防後續判斷串列超出範圍
         message.append('XD')
     if message[3] != '已繳交' and message[3] != '未開始' and message[3] != '已逾期':  # 篩選為繳交的項目出來
