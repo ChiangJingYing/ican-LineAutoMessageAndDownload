@@ -2,14 +2,14 @@
 <h3>偵查</h3>
 <h3>下載</h3>  
 <h3>傳訊（Line Notify)</h3>  
-***header = {"Authorization": "Bearer " + token}***  
-格式化需要的Header  
-  
-***param = {'message': message}***  
-param字典 key->value => message->要傳送的話  
+***header = {"Authorization": "Bearer " + token}***
+格式化需要的Header<br>
+
+***param = {'message': message}***
+param字典 key->value => message->要傳送的話<br>
 
 ***requests.post("https://notify-api.line.me/api/notify", headers=header, params=param)***  
-通過對https://notify-api.line.me/api/notify 通過POST傳送Line訊息
+通過對https://notify-api.line.me/api/notify 通過POST傳送Line訊息<br>
 
 ***r.status_code***  
 回傳POST的html狀態code
