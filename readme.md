@@ -1,7 +1,7 @@
 #慈大ican偵查今日有無作業、傳訊、下載
-###偵查
-###下載
-###傳訊（Line Notify)
+###偵查  
+###下載  
+###傳訊（Line Notify)  
 ***header = {"Authorization": "Bearer " + token}***  
 格式化需要的Header  
   
