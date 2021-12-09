@@ -71,14 +71,10 @@ def formatMessage(message):
             格式化傳入的串列
     """""""""""""""""""""""""""
     localltime = time.strftime("%Y/%-m/%-d", time.localtime())  # 取得現在的時間並格式化成（Y/M/D)
-    if len(message) != 4:  # 若為繳交狀態，則增加一個"XD"以防後續判斷串列超出範圍
-        message.append('XD')
-    if message[3] != '已繳交' and message[3] != '未開始' and message[3] != '已逾期':  # 篩選為繳交的項目出來
-        coutoggTime = time.mktime(time.strptime(message[2], '%Y/%m/%d %H:%M'))  # 結束日期秒數
-        if localltime in message[1]:  # 去除無繳交狀態且已預期的項目
-            messages = ('\n作業標題：' + message[0] + "\n起始日期：" + message[1] + '\n結束日期：' + message[2])
-            getFileCood(message[3])
-            Line_Notify(token, messages)
+    if localltime in message[1]:  # 去除無繳交狀態且已預期的項目
+        messages = ('\n作業標題：' + message[0] + "\n起始日期：" + message[1] + '\n結束日期：' + message[2])
+        getFileCood(message[3])
+        Line_Notify(token, messages)
 
 
 def Line_Notify(token, message):
