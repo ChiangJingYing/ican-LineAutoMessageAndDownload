@@ -70,7 +70,7 @@ def formatMessage(message):
     """""""""""""""""""""""""""
             格式化傳入的串列
     """""""""""""""""""""""""""
-    localltime = time.strftime("%Y/%-m/%-d", time.localtime())  # 取得現在的時間並格式化成（Y/M/D)
+    localltime = time.strftime("%Y%-m%-d", time.localtime())  # 取得現在的時間並格式化成（Y/M/D)
     if localltime in message[1]:  # 去除無繳交狀態且已預期的項目
         messages = ('\n作業標題：' + message[0] + "\n起始日期：" + message[1] + '\n結束日期：' + message[2])
         getFileCood(message[3])
